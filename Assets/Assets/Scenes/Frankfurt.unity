@@ -4380,7 +4380,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1826019380}
-  - component: {fileID: 1826019379}
   - component: {fileID: 1826019378}
   - component: {fileID: 1826019377}
   - component: {fileID: 1826019376}
@@ -4405,14 +4404,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   superSpeed: 4
   speed: 27
-  Up: {fileID: 0}
-  Right: {fileID: 0}
-  Down: {fileID: 0}
-  Left: {fileID: 0}
-  UpLeft: {fileID: 0}
-  UpRight: {fileID: 0}
-  DownRight: {fileID: 0}
-  DownLeft: {fileID: 0}
+  Up: {fileID: 21300000, guid: f03646c540aa0d54d92adcf2453ebc6b, type: 3}
+  Right: {fileID: 21300000, guid: 827bf808786af5b449782ea61d0326b0, type: 3}
+  Down: {fileID: 21300000, guid: 38da2398e39e9904c976b93f1bcfc825, type: 3}
+  Left: {fileID: 21300000, guid: 6e5b8a585eee52b46bd54718f9545650, type: 3}
+  UpLeft: {fileID: 21300000, guid: 95e809226a3990d409f5fd38f6954ad5, type: 3}
+  UpRight: {fileID: 21300000, guid: b9e3b83918760c445b7c007d7c5eba5c, type: 3}
+  DownRight: {fileID: 21300000, guid: 333ba9a27551dc54d8584e9a3791563d, type: 3}
+  DownLeft: {fileID: 21300000, guid: 413ebb2cc1c66de4fb1f91d2f1c18173, type: 3}
 --- !u!54 &1826019376
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4475,13 +4474,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1826019379
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1826019374}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1826019380
 Transform:
   m_ObjectHideFlags: 0
@@ -4580,7 +4572,7 @@ Animator:
   m_GameObject: {fileID: 1826042259}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a983998cd61b71041a7ad28af0813fea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4790,7 +4782,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 22400000, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 368.5
+      value: 369.5
       objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
       propertyPath: m_LocalPosition.y
