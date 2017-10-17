@@ -31,7 +31,7 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public void SpawnEnemy()
     {
-        lastInstantiated = Instantiate(enemy, Vector3.zero, Quaternion.identity);
+        lastInstantiated = Instantiate(enemy,transform.GetChild(Random.Range(0,transform.childCount)).GetChild(Random.Range(0,3)).position, Quaternion.identity);
         lastInstantiated.GetComponent<EnemyMovement>().MoveToTarget(transform.GetChild(Random.Range(0, transform.childCount - 1)).GetChild(Random.Range(0, 3)).position, transform.GetChild(Random.Range(0, transform.childCount - 1)).GetChild(Random.Range(0, 3)).position);
     }
 }
