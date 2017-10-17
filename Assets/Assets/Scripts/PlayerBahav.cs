@@ -22,6 +22,15 @@ public class PlayerBahav : MonoBehaviour {
     string spriteHelp;
     bool isSuperSpeed = false;
 
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        animator = transform.GetChild(0).gameObject.GetComponent<Animator>();
+        spriteRenderer = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+    }
+
     private void FixedUpdate() {
         Vector3 moveVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"), 0, CrossPlatformInputManager.GetAxis("Vertical"));
         if(!isSuperSpeed) {
@@ -32,10 +41,10 @@ public class PlayerBahav : MonoBehaviour {
             if(CrossPlatformInputManager.GetButtonUp("BuSuperSpeed")) isSuperSpeed = false;
         }
         
-        position2 = transform.position;
+        position2 = new Vector3(transform.position.x, transform.position.z);
         directionX = position2.x - position1.x; 
         directionY = position2.y - position1.y;
-        GetComponent<Animator>().enabled = true;
+        animator.enabled = true;
        
         if(directionX < 0) {  //LEFT
             if(directionY < 0) {  //DOWN
@@ -83,27 +92,27 @@ public class PlayerBahav : MonoBehaviour {
             }
         } else {  //NO MOVEMENT
             Direction(false, false, false, false, false, false, false, false);
-            GetComponent<Animator>().enabled = false;
-            if(spriteHelp == "Up") GetComponent<SpriteRenderer>().sprite = Up;
-            if(spriteHelp == "Right") GetComponent<SpriteRenderer>().sprite = Right;
-            if(spriteHelp == "Down") GetComponent<SpriteRenderer>().sprite = Down;
-            if(spriteHelp == "Left") GetComponent<SpriteRenderer>().sprite = Left;
-            if(spriteHelp == "UpLeft") GetComponent<SpriteRenderer>().sprite = UpLeft;
-            if(spriteHelp == "UpRight") GetComponent<SpriteRenderer>().sprite = UpRight;
-            if(spriteHelp == "DownRight") GetComponent<SpriteRenderer>().sprite = DownRight;
-            if(spriteHelp == "DownLeft") GetComponent<SpriteRenderer>().sprite = DownLeft;
+            animator.enabled = false;
+            if(spriteHelp == "Up") spriteRenderer.sprite = Up;
+            if(spriteHelp == "Right") spriteRenderer.sprite = Right;
+            if(spriteHelp == "Down") spriteRenderer.sprite = Down;
+            if(spriteHelp == "Left") spriteRenderer.sprite = Left;
+            if(spriteHelp == "UpLeft") spriteRenderer.sprite = UpLeft;
+            if(spriteHelp == "UpRight") spriteRenderer.sprite = UpRight;
+            if(spriteHelp == "DownRight") spriteRenderer.sprite = DownRight;
+            if(spriteHelp == "DownLeft") spriteRenderer.sprite = DownLeft;
         }
-        position1 = transform.position;
+        position1 = new Vector2(transform.position.x, transform.position.z);
     }
 
     void Direction(bool bool1, bool bool2, bool bool3, bool bool4, bool bool5, bool bool6, bool bool7, bool bool8) {
-        GetComponent<Animator>().SetBool("isGoingUp", bool1);
-        GetComponent<Animator>().SetBool("isGoingRight", bool2);
-        GetComponent<Animator>().SetBool("isGoingDown", bool3);
-        GetComponent<Animator>().SetBool("isGoingLeft", bool4);
-        GetComponent<Animator>().SetBool("isGoingUpLeft", bool5);
-        GetComponent<Animator>().SetBool("isGoingUpRight", bool6);
-        GetComponent<Animator>().SetBool("isGoingDownRight", bool7);
-        GetComponent<Animator>().SetBool("isGoingDownLeft", bool8);
+        animator.SetBool("isGoingUp", bool1);
+        animator.SetBool("isGoingRight", bool2);
+        animator.SetBool("isGoingDown", bool3);
+        animator.SetBool("isGoingLeft", bool4);
+        animator.SetBool("isGoingUpLeft", bool5);
+        animator.SetBool("isGoingUpRight", bool6);
+        animator.SetBool("isGoingDownRight", bool7);
+        animator.SetBool("isGoingDownLeft", bool8);
     }
 }
